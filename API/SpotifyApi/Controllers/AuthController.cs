@@ -84,6 +84,13 @@ namespace SpotifyApi.Controllers
 
         }
 
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("jwt");
+            return Ok("Logged out");
+        }
+
             
     }
 }
