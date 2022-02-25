@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using SpotifyApi.Data;
 using SpotifyApi.Dtos;
 using SpotifyApi.Helpers;
@@ -55,8 +56,11 @@ namespace SpotifyApi.Controllers
 
             var jwt = _jwtService.Generate(user.Id);
 
-
-            return Ok("Succes");
+            Response.Cookies.Append("jwt", jwt, new CookieOptions
+            {
+                HttpOnly = true
+            });
+            return Ok("Success");
 
         }
 
