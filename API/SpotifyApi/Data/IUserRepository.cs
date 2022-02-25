@@ -10,5 +10,7 @@ namespace SpotifyApi.Data
     {
         User Create(User user);
         User GetByName(string Name);
+
+        User GetById(int id);
     }
 }

@@ -27,6 +27,11 @@ namespace SpotifyApi.Data
             return newUser;
         }
 
+        public User GetById(int id)
+        {
+            return _context.Users.FirstOrDefault(user => user.Id == id);
+        }
+
         public User GetByName(string Name)
         {
             return _context.Users.FirstOrDefault(user => user.Name == Name);

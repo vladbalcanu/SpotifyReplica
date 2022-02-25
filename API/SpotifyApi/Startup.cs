@@ -28,7 +28,7 @@ namespace SpotifyApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors();
             services.AddControllers();
             
             services.AddSwaggerGen(c =>
@@ -54,6 +54,11 @@ namespace SpotifyApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            // 3000 - React , 8080 - Vuejs , 4200 -Angular
+            app.UseCors(options => options.WithOrigins("http://localhost:3000", "http://localhost:8080", "http://localhost:4200") 
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials());
 
             app.UseAuthorization();
 
