@@ -30,11 +30,8 @@ namespace SpotifyApi
         {
             services.AddCors();
             services.AddControllers();
-            
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SpotifyApi", Version = "v1" });
-            });
+
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<JwtService>();
             services.AddHttpContextAccessor();
@@ -47,17 +44,17 @@ namespace SpotifyApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SpotifyApi v1"));
             }
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
             // 3000 - React , 8080 - Vuejs , 4200 -Angular
-            app.UseCors(options => options.WithOrigins("http://localhost:3000", "http://localhost:8080", "http://localhost:4200") 
+            app.UseCors(options => options
+            .WithOrigins(new[] { "http://localhost:3000", "http://localhost:8080", "http://localhost:4200" })
             .AllowAnyHeader()
             .AllowAnyMethod()
+            .SetIsOriginAllowed(host => true)
             .AllowCredentials());
 
             app.UseAuthorization();

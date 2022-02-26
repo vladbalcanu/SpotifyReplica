@@ -17,8 +17,7 @@ import useFetch from 'react-fetch-hook'
 
 
 export function LandingPage() {
-    const{data}=useFetch("https://localhost:44392/api/login/GetUser");
-    console.log({data});
+    
 
     return (
         <Box sx={{ display: "flex", bgcolor: 'black',height: 857  }}>

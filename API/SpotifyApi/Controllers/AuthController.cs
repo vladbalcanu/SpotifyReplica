@@ -59,8 +59,9 @@ namespace SpotifyApi.Controllers
             Response.Cookies.Append("jwt", jwt, new CookieOptions
             {
                 HttpOnly = true
+
             });
-            return Ok("Success");
+            return Ok(new {jwt});
 
         }
 
@@ -69,15 +70,19 @@ namespace SpotifyApi.Controllers
         {
             try
             {
-                var jwt = Request.Cookies["jwt"];
+                var jwt =Request.Cookies["jwt"];
+
                 var token = _jwtService.Verify(jwt);
+
                 int userId = int.Parse(token.Issuer);
+
                 var user = _repository.GetById(userId);
+
                 return Ok(user);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                return Unauthorized();
+                return Unauthorized(e.Message);
             }
             
 
