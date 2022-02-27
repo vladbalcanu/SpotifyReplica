@@ -8,6 +8,7 @@ import { SignUpPage } from './pages/signup';
 import { SignInPage } from './pages/signin';
 import { useSelector,useDispatch } from 'react-redux';
 import {login} from './features/auth/auth-slice'
+import {MainPage} from './pages/mainpage/index'
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/" element ={<LandingPage />}/>
         <Route exact path="/signup" element ={<SignUpPage/>}/>
         <Route exact path="/signin" element={<SignInPage/>}/>
+        <Route exact path="/mainpage" element={<MainPage/>}/>
       </Routes>
     </BrowserRouter>
   );

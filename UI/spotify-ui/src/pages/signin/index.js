@@ -10,6 +10,7 @@ import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {login} from '../../features/auth/auth-slice'
+import Divider from '@mui/material/Divider';
 
 export function SignInPage() {
     const [name, setName] = useState("");
@@ -32,7 +33,7 @@ export function SignInPage() {
         setRedirect(true);
     }
     if (redirect) {
-        return (<Navigate to="/" />);
+        return (<Navigate to="/mainpage" />);
     }
 
     return (
@@ -88,7 +89,8 @@ export function SignInPage() {
                     fontSize: 18,
                     fontWeight: "bold",
                     height: 60,
-                    width: 240
+                    width: 240,
+                    bgcolor:"white",
                 }}>
                 Connect
             </Button>
