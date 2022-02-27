@@ -6,11 +6,15 @@ import { LandingPage } from './pages/landingpage';
 import Navbar from './components/navbar';
 import { SignUpPage } from './pages/signup';
 import { SignInPage } from './pages/signin';
+import { useSelector,useDispatch } from 'react-redux';
+import {login} from './features/auth/auth-slice'
 
 
 function App() {
   const [name,setName] =useState("");
-  const [isAuth,setIsAuth] =useState(false);
+  const isAuth = useSelector((state) => state.auth.value)
+  const dispatch = useDispatch();
+
 
     useEffect(()=>{
         (
@@ -22,11 +26,6 @@ function App() {
         });
         const content= await response.json();
         setName(content.name);
-        if(name!= ''){
-          setIsAuth(true);
-        }else{
-          setIsAuth(false);
-        }
         console.log(name)
 
         }
@@ -34,7 +33,7 @@ function App() {
     });
   return (
     <BrowserRouter>
-    <Navbar user= {isAuth}/>
+    <Navbar/>
       <Routes>
         <Route exact path="/" element ={<LandingPage />}/>
         <Route exact path="/signup" element ={<SignUpPage/>}/>

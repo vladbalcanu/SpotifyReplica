@@ -1,12 +1,18 @@
 import { AppBar, Avatar, Toolbar, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import spotify from "../../Images/spotify.jpg"
+import {logout} from '../../features/auth/auth-slice'
+import { useDispatch } from "react-redux";
 
 
-export default function Navbar(user) {
-    console.log(user);
+export default function Navbar() {
+    const isAuth = useSelector((state) => state.auth.value)
+    const dispatch = useDispatch();
+    console.log("Aici avem isAuth")
+    console.log(isAuth);
     
 
     const  handleLogout = async () =>{ 
@@ -15,6 +21,7 @@ export default function Navbar(user) {
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include'
     });
+    dispatch(logout());
     }
     return (
         <Box>
@@ -42,14 +49,14 @@ export default function Navbar(user) {
                         </Typography>
                     </NavLink>
                     
-                    {!user.user && (
+                    {!isAuth && (
                     <NavLink to='/signin' style = {{textDecoration:'none', color: 'white',marginLeft: 100}}>
                     <Typography>
                         Sign in
                     </Typography>
                 </NavLink>
                 )}
-                 {!user.user && ( <NavLink to='/signup' style = {{textDecoration:'none', color: 'white',marginLeft: 100}}>
+                 {!isAuth && ( <NavLink to='/signup' style = {{textDecoration:'none', color: 'white',marginLeft: 100}}>
                     <Typography>
                         Sign up
                     </Typography>
@@ -57,7 +64,7 @@ export default function Navbar(user) {
                 </NavLink>
                 )}
                 
-                {user.user && (
+                {isAuth && (
                     <NavLink to='/' onClick={handleLogout} style = {{textDecoration:'none', color: 'white',marginLeft: 100}}>
                     <Typography>
                         Logout

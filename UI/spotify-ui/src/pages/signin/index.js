@@ -7,11 +7,16 @@ import video from "../../Images/Anim.mp4"
 import styles from "./video.module.css"
 import LockIcon from '@mui/icons-material/Lock';
 import { Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import {login} from '../../features/auth/auth-slice'
 
 export function SignInPage() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [redirect, setRedirect] = useState(false);
+    const dispatch = useDispatch();
+    const isAuth = useSelector((state)=> state.auth.value)
 
     const handleLogin = async () => {
         const response = await fetch("http://localhost:8000/api/login", {
@@ -23,6 +28,7 @@ export function SignInPage() {
                 password
             })
         });
+        dispatch(login())
         setRedirect(true);
     }
     if (redirect) {
