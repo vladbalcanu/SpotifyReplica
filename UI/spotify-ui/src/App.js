@@ -28,7 +28,6 @@ function App() {
         const content= await response.json();
         setName(content.name);
         console.log(name)
-
         }
         )();
     });

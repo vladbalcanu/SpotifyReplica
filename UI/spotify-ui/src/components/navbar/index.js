@@ -11,8 +11,6 @@ import { useDispatch } from "react-redux";
 export default function Navbar() {
     const isAuth = useSelector((state) => state.auth.value)
     const dispatch = useDispatch();
-    console.log("Aici avem isAuth")
-    console.log(isAuth);
     
 
     const  handleLogout = async () =>{ 

@@ -29,8 +29,13 @@ export function SignInPage() {
                 password
             })
         });
-        dispatch(login())
+        console.log(response.status);
+        if(response.status==200){
         setRedirect(true);
+        dispatch(login());
+        }
+        else
+        setRedirect(false);
     }
     if (redirect) {
         return (<Navigate to="/mainpage" />);
@@ -68,6 +73,7 @@ export function SignInPage() {
                 label="Required"
                 placeholder="password"
                 variant="filled"
+                type="password"
                 onChange={(e) => setPassword(e.target.value)}
                 InputProps={{
                     startAdornment: (

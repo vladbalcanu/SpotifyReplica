@@ -81,7 +81,7 @@ export function MainPage() {
                 <Divider sx={{ borderColor: "white" }} />
                 <Button variant="contained" startIcon={<FavoriteIcon />} sx={{
                     width: '100%', textAlign: 'left', backgroundColor: "black",
-                    display: "inline-block", ":hover": { boxShadow: 6, backgroundColor: "#32a852" }
+                    display: "inline-block", ":hover": { boxShadow: 6, backgroundColor: "#32a852"}
                 }}>
                     Liked Songs
                 </Button>
@@ -104,7 +104,7 @@ export function MainPage() {
 
                         position: 'relative',
                         overflow: 'auto',
-                        maxHeight: 563,
+                        maxHeight: 568,
                         '& ul': { padding: 0 },
                         scrollbarColor:'red yellow'
                     }}
