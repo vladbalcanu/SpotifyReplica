@@ -1,8 +1,7 @@
-import { Box, Button, Menu, MenuItem } from '@mui/material';
+import { Box, Button, Menu, MenuItem, Select, Typography } from '@mui/material';
 import * as React from 'react';
 import { useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
-import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 import LibraryMusic from '@mui/icons-material/LibraryMusic';
 import SearchIcon from '@mui/icons-material/Search';
 import AddBoxIcon from '@mui/icons-material/AddBox';
@@ -14,8 +13,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import darkScrollbar from '@mui/material/darkScrollbar';
-
+import background from '../../Images/mainpage.jpg';
+import MediaControlCard from '../../components/mediacontrolcard';
 export function MainPage() {
     const [anchorEl, setAnchorEl] = useState("");
     const open = Boolean(anchorEl);
@@ -28,7 +27,7 @@ export function MainPage() {
 
     return (
         <Box sx={{ display: "flex" }}>
-            <Box sx={{ backgroundColor: "black", width: '12%', textAlign: 'left', position:"fixed" }}>
+            <Box sx={{ backgroundColor: "black", width: '12%', textAlign: 'left', position: "fixed" }}>
                 <Button
                     sx={{ width: '100%', alignContent: 'left', textAlign: 'left', color: "white", ":hover": { boxShadow: 6, backgroundColor: "#32a852" } }}
                     id="settings"
@@ -81,7 +80,7 @@ export function MainPage() {
                 <Divider sx={{ borderColor: "white" }} />
                 <Button variant="contained" startIcon={<FavoriteIcon />} sx={{
                     width: '100%', textAlign: 'left', backgroundColor: "black",
-                    display: "inline-block", ":hover": { boxShadow: 6, backgroundColor: "#32a852"}
+                    display: "inline-block", ":hover": { boxShadow: 6, backgroundColor: "#32a852" }
                 }}>
                     Liked Songs
                 </Button>
@@ -106,7 +105,7 @@ export function MainPage() {
                         overflow: 'auto',
                         maxHeight: 568,
                         '& ul': { padding: 0 },
-                        scrollbarColor:'red yellow'
+                        scrollbarColor: 'red yellow'
                     }}
                     subheader={<li />}
                 >
@@ -117,7 +116,7 @@ export function MainPage() {
                                     <ListItem key={`Playlist-${sectionId}-${item}`}
                                         secondaryAction={<IconButton>
                                             <PlayCircleIcon
-                                                sx={{ bgColor: "white", color: "white",":hover":{color:"#32a852"} }} />
+                                                sx={{ bgColor: "white", color: "white", ":hover": { color: "#32a852" } }} />
                                         </IconButton>}>
                                         <ListItemText primary={`Playlist ${item}`} />
                                     </ListItem>
@@ -126,19 +125,22 @@ export function MainPage() {
                         </li>
                     ))}
                 </List>
-
-
+            </Box>
+            <Box sx={{ backgroundImage: `url(${background})`, width: "100%", height: 857,marginLeft:"12%"}}>
+                <Typography sx={{fontSize:36,color:"white", position:"relative",fontWeight:"Bold", marginLeft:3,marginTop:10}}>
+                    Good Afternoon
+                </Typography>
             </Box>
             <Box>
 
             </Box>
-            <Box>
 
-            </Box>
+            <Box sx={{position:"fixed",marginTop:80,marginLeft:100}}><MediaControlCard /></Box>
 
 
 
         </Box>
+        
     )
 
 
