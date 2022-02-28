@@ -20,7 +20,7 @@ export function LandingPage() {
     
 
     return (
-        <Box sx={{ display: "flex", bgcolor: 'black',height: 857  }}>
+        <Box sx={{ display: "flex", bgcolor: 'black',height: 857,marginTop:10 }}>
             <Box sx={{ display: "block", marginTop: 0, width: 850}}>
                 <Typography sx={{fontSize: 55, fontWeight: "bold", color: 'white', marginLeft: 37,marginTop:15 }}>
                     Music for

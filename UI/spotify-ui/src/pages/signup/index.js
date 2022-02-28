@@ -43,7 +43,7 @@ export function SignUpPage() {
     
 
     return (
-        <Box sx={{ backgroundImage: `url(${background})`, height: 857, width: 1920 }}>
+        <Box sx={{ backgroundImage: `url(${background})`, height: 857, width: 1920, marginTop:10 }}>
             <video className={styles.video} loop autoPlay muted id='video'>
                 <source
                     src={video}

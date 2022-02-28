@@ -11,11 +11,12 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import bruno from '../../Images/Bruno.jpg'
+import { Avatar } from '@mui/material';
 
-export default function MediaControlCard() {
+export default function SongControlCard() {
   const theme = useTheme();
   return (
-    <Card sx={{ display: 'flex' , bgcolor:"black",color:"white",boxShadow:30, borderRadius:15,width:290,maxHeight:180 }}>
+    <Card sx={{ display: 'flex' , bgcolor:"black",color:"white",boxShadow:30, borderRadius:15,width:300,maxHeight:140 }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component="div" variant="h5">
@@ -25,7 +26,7 @@ export default function MediaControlCard() {
             Bruno Mars
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1,color:"white",bgcolor:"black" }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1,color:"white",bgcolor:"black",marginBottom:2 }}>
           <IconButton aria-label="previous" sx={{color:"white"}}>
             {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
           </IconButton>
@@ -37,12 +38,9 @@ export default function MediaControlCard() {
           </IconButton>
         </Box>
       </Box>
-      <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        image={bruno}
-        alt="Live from space album cover"
-      />
+     <Avatar src={bruno} sx={{ width: 120, height: 120,marginTop:1.5,marginLeft:3}}>
+                </Avatar>
+
     </Card>
   );
 }

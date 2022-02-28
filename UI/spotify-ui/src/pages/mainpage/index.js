@@ -4,21 +4,14 @@ import { useState } from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusic from '@mui/icons-material/LibraryMusic';
 import SearchIcon from '@mui/icons-material/Search';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import TvIcon from '@mui/icons-material/Tv';
-import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import IconButton from '@mui/material/IconButton';
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import background from '../../Images/mainpage.jpg';
-import MediaControlCard from '../../components/mediacontrolcard';
+import SongControlCard from '../../components/mediacontrolcard';
 import SidePanel from '../../components/sidepanel';
 import Drawer from '@mui/material/Drawer';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import PeopleIcon from '@mui/icons-material/People';
+import PlayListCard from '../../components/playlistcard/index'
+import Grid from '@mui/material/Grid';
 
 
 export function MainPage() {
@@ -42,12 +35,13 @@ export function MainPage() {
                     </SidePanel>
                 </Drawer>
 
-            <Box sx={{ backgroundImage: `url(${background})`, width: "100%", height: 857 }}>
+            <Box sx={{ backgroundImage: `url(${background})`, width: "100%", height: "100%",position:"fixed" }}>
+                </Box>
                
-
+            <Box sx={{position:"absolute",marginTop:10}}>
                 <Button variant="contained" startIcon={<UnfoldMoreIcon />} onClick={toggleDrawer(true)} sx={{borderRadius:10,
                     width: 'auto', backgroundColor: "black",
-                    display: "inline-block",marginLeft:80,marginTop:5, ":hover": { boxShadow: 6, backgroundColor: "#32a852" }
+                    display: "inline-block",marginLeft:85,marginTop:5, ":hover": { boxShadow: 6, backgroundColor: "#32a852" }
                 }}>
                     More
                 </Button>
@@ -75,20 +69,38 @@ export function MainPage() {
                 }}>
                     Friends
                 </Button>
-
-                <Typography sx={{ fontSize: 36, color: "white", position: "relative", fontWeight: "Bold", marginLeft: 3, marginTop: 10 }}>
+                <Typography sx={{ fontSize: 36, color: "white", position: "relative", fontWeight: "Bold", marginLeft: 15, marginTop: 10 }}>
                     Good Afternoon
                 </Typography>
-              
+                <Box  sx={{marginLeft:30,display:"inline-flex"}}>
+                <Grid item xs={9}>
+                <Grid container spacing={10} columns ={4}>
+                    <Grid item xs={3}>
+                       
+                    <PlayListCard sx={{marginLeft:20}}/>
+                    </Grid>
+                    <Grid item xs={6}>
+                       
+                    <PlayListCard sx={{marginLeft:20}}/>
+                    </Grid>
+                    <Grid item xs={6}>
+                       
+                    <PlayListCard sx={{marginLeft:20}}/>
+                    </Grid>
+                    <Grid item xs={6}>
+                       
+                    <PlayListCard sx={{marginLeft:20}}/>
+                    </Grid>
+
+
+
+                </Grid>
+                </Grid>
+                
+               
+                </Box>
             </Box>
-            <Box>
-
-            </Box>
-
-            <Box sx={{ position: "fixed", marginTop: 80, marginLeft: 100 }}><MediaControlCard /></Box>
-
-
-
+            <Box sx={{ position: "fixed", marginTop: 80, marginLeft: 100 }}><SongControlCard /></Box>
         </Box>
 
     )

@@ -23,7 +23,7 @@ export default function Navbar() {
     }
     return (
         <Box>
-            <AppBar position="sticky" sx={{ bgcolor: '#060d17' }}>
+            <AppBar position="absolute" sx={{ bgcolor: '#060d17' }}>
                 <Toolbar sx={{ marginLeft: 2 }}>
                     <NavLink to={'/'} style={{ textDecoration: 'none', color: 'white', display: "inline-flex", marginLeft: 250 }}>
                         <Avatar src={spotify} sx={{ width: 80, height: 80 }} />

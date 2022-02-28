@@ -65,7 +65,7 @@ export function SignInPage() {
                         </InputAdornment>
                     ),
                 }}
-                sx={{ backgroundColor: "#45adc4", position: "absolute", marginLeft: 105, marginTop: 10 }}
+                sx={{ backgroundColor: "#45adc4", position: "absolute", marginLeft: 105, marginTop: 20 }}
             />
             <TextField
                 required
@@ -82,7 +82,7 @@ export function SignInPage() {
                         </InputAdornment>
                     ),
                 }}
-                sx={{ backgroundColor: "#45adc4", position: "absolute", marginTop: 20, marginLeft: 105 }}
+                sx={{ backgroundColor: "#45adc4", position: "absolute", marginTop: 30, marginLeft: 105 }}
             />
             <Button variant="contained"
                 onClick={handleLogin}
@@ -90,7 +90,7 @@ export function SignInPage() {
                     bgcolor: "#03fc5e",
                     color: '#0f1f3d',
                     marginLeft: 105,
-                    marginTop: 70,
+                    marginTop: 80,
                     borderRadius: 50,
                     fontSize: 18,
                     fontWeight: "bold",

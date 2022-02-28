@@ -9,7 +9,8 @@ import { SignInPage } from './pages/signin';
 import { useSelector,useDispatch } from 'react-redux';
 import {login} from './features/auth/auth-slice'
 import {MainPage} from './pages/mainpage/index'
-import MediaControlCard from './components/mediacontrolcard/index'
+import SongControlCard from './components/mediacontrolcard/index'
+import PlayListCard from './components/playlistcard';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route exact path="/signup" element ={<SignUpPage/>}/>
         <Route exact path="/signin" element={<SignInPage/>}/>
         <Route exact path="/mainpage" element={<MainPage/>}/>
+        <Route exact path="/test" element={<PlayListCard/>}/>
       </Routes>
     </BrowserRouter>
   );
