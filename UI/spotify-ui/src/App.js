@@ -40,7 +40,6 @@ function App() {
         <Route exact path="/signup" element ={<SignUpPage/>}/>
         <Route exact path="/signin" element={<SignInPage/>}/>
         <Route exact path="/mainpage" element={<MainPage/>}/>
-        <Route exact path="/test" element ={<MediaControlCard/>}/>
       </Routes>
     </BrowserRouter>
   );
