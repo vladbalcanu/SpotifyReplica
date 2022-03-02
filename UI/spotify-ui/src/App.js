@@ -11,6 +11,7 @@ import {login} from './features/auth/auth-slice'
 import {MainPage} from './pages/mainpage/index'
 import SongControlCard from './components/mediacontrolcard/index'
 import PlayListCard from './components/playlistcard';
+import SongCard from './components/songcard/index';
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
         <Route exact path="/signup" element ={<SignUpPage/>}/>
         <Route exact path="/signin" element={<SignInPage/>}/>
         <Route exact path="/mainpage" element={<MainPage/>}/>
-        <Route exact path="/test" element={<PlayListCard/>}/>
+        <Route exact path="/test" element={<SongCard/>}/>
       </Routes>
     </BrowserRouter>
   );
